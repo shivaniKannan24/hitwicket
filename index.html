@@ -3,11 +3,50 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>WebSocket Demo</title>
 </head>
 <body>
-    <h1>Shivani.K</h1>
-    <p>Hello World</p>
-    <p>Hello Shivani</p>
+    <h1>WebSocket Client</h1>
+    <div id="messages"></div>
+    <input type="text" id="messageInput" placeholder="Type a message...">
+    <button id="sendButton">Send</button>
+
+    <script>
+        // Create a new WebSocket connection to the server
+        const socket = new WebSocket('ws://localhost:8080');
+
+        // Elements for displaying messages and sending data
+        const messagesDiv = document.getElementById('messages');
+        const messageInput = document.getElementById('messageInput');
+        const sendButton = document.getElementById('sendButton');
+
+        // Event listener for when the connection is opened
+        socket.addEventListener('open', (event) => {
+            messagesDiv.innerHTML += '<p>Connected to the server</p>';
+        });
+
+        // Event listener for receiving messages from the server
+        socket.addEventListener('message', (event) => {
+            messagesDiv.innerHTML += `<p>Server: ${event.data}</p>`;
+        });
+
+        // Event listener for the send button
+        sendButton.addEventListener('click', () => {
+            const message = messageInput.value;
+            socket.send(message);
+            messagesDiv.innerHTML += `<p>You: ${message}</p>`;
+            messageInput.value = '';
+        });
+
+        // Event listener for when the connection is closed
+        socket.addEventListener('close', (event) => {
+            messagesDiv.innerHTML += '<p>Disconnected from the server</p>';
+        });
+
+        // Event listener for when an error occurs
+        socket.addEventListener('error', (event) => {
+            messagesDiv.innerHTML += '<p>Error occurred</p>';
+        });
+    </script>
 </body>
 </html>
