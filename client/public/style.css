@@ -1,0 +1,33 @@
+/* style.css */
+
+#board {
+  display: grid;
+  grid-template-columns: repeat(4, 100px);
+  grid-template-rows: repeat(4, 100px);
+  gap: 2px;
+}
+
+.cell {
+  background-color: #f0f0f0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #ddd;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.piece {
+  padding: 10px;
+  border-radius: 4px;
+  color: #fff;
+}
+
+.piece.A-P1, .piece.A-P2, .piece.A-H1, .piece.A-H2 {
+  background-color: #1a73e8;
+}
+
+.piece.B-P1, .piece.B-P2, .piece.B-H1, .piece.B-H2 {
+  background-color: #e8453c;
+}
