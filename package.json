@@ -1,0 +1,18 @@
+{
+  "name": "hitwicket",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000h\u0000i\u0000t\u0000w\u0000i\u0000c\u0000k\u0000e\u0000t\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "react-spring": "^9.7.4",
+    "socket.io-client": "^4.7.5",
+    "styled-components": "^6.1.12",
+    "ws": "^8.18.0"
+  }
+}
